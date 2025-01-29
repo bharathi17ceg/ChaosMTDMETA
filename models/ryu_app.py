@@ -27,7 +27,7 @@ class IDSController(app_manager.RyuApp):
         super().__init__(*args, **kwargs)
         self.detector = MetaAnomalyDetector()
         self.mtd_engine = LorenzMTD()
-        self.rl_agent = RLAgent()
+        self.rl_agent = RLAgent(MTDEnv())
         self.network_state = np.zeros(5)  # State: [bandwidth, latency, packet_loss, etc.]
         
         # Full action mapping with strategy combinations
