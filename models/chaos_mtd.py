@@ -2,6 +2,19 @@
 import numpy as np
 
 class LorenzMTD:
+    def __init__(self, ryapp):
+        super().__init__()
+        self.network = SDNNetwork(ryapp)
+        self.action_space = spaces.Discrete(8)
+        self.observation_space = spaces.Box(
+            low=0, high=1, shape=(5,), dtype=np.float32)
+        
+    def step(self, action):
+        # Execute action on real SDN network
+        reward = self._apply_mtd_action(action)
+        next_state = self.network.get_state()
+        done = False
+        return next_state, reward, done, {}
     def __init__(self):
         self.sigma, self.rho, self.beta, self.lambd = 10, 28, 8/3, 2.0
         self.x, self.y, self.z, self.w = 0.1, 0.0, 0.0, 0.0
