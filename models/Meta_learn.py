@@ -155,6 +155,4 @@ if __name__ == "__main__":
     )
     
     ids_system.train(meta_epochs=50, adaptation_steps=3)
-    test_data = ...  # Load test dataset
-    accuracy = ids_system.evaluate(test_data)
-    print(f"Final Detection Accuracy: {accuracy*100:.2f}%")
+   

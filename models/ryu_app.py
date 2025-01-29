@@ -17,7 +17,7 @@ class IDSController(app_manager.RyuApp):
         self.detector = MetaAnomalyDetector()
         self.mtd_engine = LorenzMTD()
         self.rl_agent = RLAgent()
-        self.network_state = np.zeros(8)  # State: [bandwidth, latency, packet_loss, etc.]
+        self.network_state = np.zeros(5)  # State: [bandwidth, latency, packet_loss, etc.]
         
         # Full action mapping with strategy combinations
         self.mtd_actions = {
@@ -70,7 +70,7 @@ class IDSController(app_manager.RyuApp):
     def _update_network_state(self, anomalies):
         """Update network state vector for RL"""
         # Implement actual network monitoring here
-        self.network_state = np.random.rand(8)  # Placeholder
+        self.network_state = np.random.rand(5)  
 
     # MTD Action Implementations
     def _apply_path_mutation(self, pkt, datapath):
@@ -162,11 +162,11 @@ class IDSController(app_manager.RyuApp):
             instructions=inst
         )
         datapath.send_msg(mod)
+        
+        
+if __name__ == "__main__":    
+    app = IDSController()
 
-    def _get_network_topology(self):
-        """Get current network topology (implement based on your SDN setup)"""
-        return {}  # Return actual topology structure
 
-if __name__ == "__main__":
-    # Run with: ryu-manager ryu_app.py
-    pass
+
+

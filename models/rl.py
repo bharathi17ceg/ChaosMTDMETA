@@ -13,7 +13,7 @@ class MTDEnv(gym.Env):
         
         self.current_state = None
         self.mtd_engine = LorenzMTD()
-        self.network = NetworkSimulator()
+        self.network = SDNNetworkState()
 
     def reset(self):
         self.current_state = self.network.get_state()
@@ -49,7 +49,49 @@ class MTDEnv(gym.Env):
             self.mtd_engine.mutate_path(self.network.topology))
         return 0.2
 
-    # Implement other action methods following similar pattern
+    def _port_mutation(self):
+        self.network.apply_port_mutation(
+            self.mtd_engine.mutate_port(self.network.ports))
+        return 0.3
+
+    def _ip_mutation(self):
+        self.network.apply_ip_mutation(
+            self.mtd_engine.mutate_ip(self.network.ip_addresses))
+        return 0.4
+
+    def _path_port_mutation(self):
+        self.network.apply_path_mutation(
+            self.mtd_engine.mutate_path(self.network.topology))
+        self.network.apply_port_mutation(
+            self.mtd_engine.mutate_port(self.network.ports))
+        return 0.5
+
+    def _path_ip_mutation(self):
+        self.network.apply_path_mutation(
+            self.mtd_engine.mutate_path(self.network.topology))
+        self.network.apply_ip_mutation(
+            self.mtd_engine.mutate_ip(self.network.ip_addresses))
+        return 0.6
+
+    def _ip_port_mutation(self):
+        self.network.apply_ip_mutation(
+            self.mtd_engine.mutate_ip(self.network.ip_addresses))
+        self.network.apply_port_mutation(
+            self.mtd_engine.mutate_port(self.network.ports))
+        return 0.7
+
+    def _full_mutation(self):
+        self.network.apply_path_mutation(
+            self.mtd_engine.mutate_path(self.network.topology))
+        self.network.apply_port_mutation(
+            self.mtd_engine.mutate_port(self.network.ports))
+        self.network.apply_ip_mutation(
+            self.mtd_engine.mutate_ip(self.network.ip_addresses))
+        return 0.8
+
+    def _no_action(self):
+        return 0.0
+
 
 class RLAgent:
     def __init__(self, env):
