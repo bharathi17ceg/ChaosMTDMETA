@@ -17,8 +17,8 @@ class Config:
     
     # Dataset paths
     DATASETS = [
-        'data/raw/CIC-IDS2017',
-        'data/raw/CIC-DDoS2018',
-        'data/raw/CIC-DDoS2019',
-        'data/raw/CIRA-CIC-DoBre-2020'
+        'data/dataset_info/CIC-IDS2017',
+        'data/dataset_info/CIC-DDoS2018',
+        'data/dataset_info/CIC-DDoS2019',
+        'data/dataset_info/CIRA-CIC-DoBrw-2020'
     ]
