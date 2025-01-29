@@ -162,8 +162,11 @@ class IDSController(app_manager.RyuApp):
             instructions=inst
         )
         datapath.send_msg(mod)
+        
+        
+if __name__ == "__main__":    
+    app = IDSController()
 
 
-if __name__ == "__main__":
-    # Run with: ryu-manager ryu_app.py
-    pass
+
+
