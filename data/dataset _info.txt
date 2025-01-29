@@ -1,1 +1,15 @@
-dataset _info
+1. CIC-DDoS2019 Dataset
+
+The CIC-DDoS2019 dataset includes various modern reflective Distributed Denial of Service (DDoS) attacks such as PortMap, NetBIOS, LDAP, MSSQL, UDP, UDP-Lag, SYN, NTP, DNS, and SNMP. The dataset comprises raw network traffic captures (PCAP files) and labeled flow records in CSV format, generated using CICFlowMeter-V3. This structure facilitates the analysis of both packet-level and flow-level data. Available at https://www.unb.ca/cic/datasets/ddos-2019.html
+
+2. CSE-CIC-IDS2018 Dataset
+
+TThe CSE-CIC-IDS2018 dataset consists of a large volume of network traffic captured in a simulated environment. It includes various protocols, such as TCP, UDP, ICMP, and application-layer protocols like HTTP, FTP, and DNS. The dataset contains both benign and malicious traffic, with labels representing a wide range of attacks, including DDoS, botnet traffic, and scanning activities. It provides raw network traffic data (PCAP files) and labeled flow records in CSV format, enabling detailed analysis of DDoS attack patterns and their impact on network traffic. https://www.unb.ca/cic/datasets/ids-2018.html
+
+3. CIC-IDS2017 Dataset
+
+The CIC-IDS2017 dataset offers a comprehensive set of intrusion scenarios, including various attack types such as Brute Force, Heartbleed, Botnet, DoS, DDoS, and Web attacks. It provides raw network traffic captures (PCAP files), labeled flow records in CSV format, and additional metadata, supporting extensive analysis for intrusion detection research. It is available at https://www.unb.ca/cic/datasets/ids-2017.html
+
+4. CIRA-CIC-DoHBrw-2020 Dataset
+
+The CIRA-CIC-DoHBrw-2020 dataset is designed to analyze, test, and evaluate DNS over HTTPS (DoH) traffic in covert channels and tunnels. It includes both benign and malicious DoH traffic, captured within an application to simulate realistic scenarios. The dataset is structured to facilitate time-series analysis and includes features extracted from network traffic, aiding in the detection and characterization of DoH-based covert channels. https://www.unb.ca/cic/datasets/dohbrw-2020.html
