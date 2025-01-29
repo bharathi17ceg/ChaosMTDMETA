@@ -11,7 +11,18 @@ import numpy as np
 
 class IDSController(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
-    
+    def __init__(self):
+        super().__init__()
+        self.network = SDNNetwork(self)
+        self.topology_api_app = self
+        
+    @set_ev_cls(event.EventSwitchEnter)
+    def switch_enter_handler(self, ev):
+        self.network._detect_topology()
+        
+    @set_ev_cls(event.EventLinkAdd)
+    def link_add_handler(self, ev):
+        self.network._detect_topology()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.detector = MetaAnomalyDetector()
