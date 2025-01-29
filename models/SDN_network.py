@@ -85,9 +85,3 @@ class SDNNetwork:
                 actions=actions,
                 priority=1000
             )
-
-    def security_improvement(self):
-        """Calculate security improvement based on attack detection rate"""
-        prev_rate = self.ryu_app.detector.attack_success_rate
-        current_rate = self.ryu_app.detector.current_attack_success_rate
-        return prev_rate - current_rate
