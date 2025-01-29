@@ -13,7 +13,7 @@ class MTDEnv(gym.Env):
         
         self.current_state = None
         self.mtd_engine = LorenzMTD()
-        self.network = NetworkSimulator()
+        self.network = SDNNetworkState()
 
     def reset(self):
         self.current_state = self.network.get_state()
